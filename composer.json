@@ -1,0 +1,32 @@
+{
+    "name": "cirote/ui",
+    "description": "Tailwind scaffolding for the Laravel framework.",
+    "keywords": ["laravel", "tailwind", "auth", "user interface"],
+    "license": "MIT",
+    "require": {
+        "php": "^7.3|^8.0",
+        "laravel/jetstream": "2.*"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Cirote\\Ui\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        },
+        "laravel": {
+            "providers": [
+                "Cirote\\Ui\\UiServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
