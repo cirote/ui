@@ -12,10 +12,10 @@ Agregar en composer.json
         }
     ],
     "require": {
-        "cirote/ui": "dev-main",
+        "cirote/ui": "dev-main"
     }
 
 Ejecutar
-'''
+```
 composer require cirote/ui
-'''
+```
