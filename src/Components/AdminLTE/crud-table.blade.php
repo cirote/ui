@@ -16,9 +16,14 @@
         <div class="row">
             <div class="col-sm-12">
                 <x-ui-table>
+                    @if (isset($header))
                     <x-slot name="header">
                         {{ $header }}
                     </x-slot>
+                    @endif
+                   
+                    {{ $slot }}
+                    
                 </x-ui-table>
             </div>
         </div>

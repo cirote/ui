@@ -14,6 +14,7 @@ class UiServiceProvider extends ServiceProvider
         'crud-table',
         'layout',
         'table',
+        'td',
         'th'
     ];
 
