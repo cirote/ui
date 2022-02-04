@@ -7,6 +7,12 @@ use Illuminate\Support\Facades\Blade;
 
 class UiServiceProvider extends ServiceProvider
 {
+    private $components = [
+        'base',
+        'banner',
+        'layout'
+    ];
+
     public function register()
     {
         $this->mergeConfigFrom(__DIR__ . '/Config/ui.php', 'ui');
@@ -16,9 +22,10 @@ class UiServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__ . '/Components', 'ui');
 
-
-            $this->registerComponent('layout');
-
+        foreach($this->components as $component)
+        {
+            $this->registerComponent($component); 
+        }
     }
 
     protected function registerComponent(string $component)

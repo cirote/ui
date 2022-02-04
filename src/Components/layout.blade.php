@@ -1,4 +1,12 @@
-<x-app-layout>
+<x-ui-base>
+    <x-slot name="banner">
+        <x-ui-banner />
+    </x-slot>
+
+    <x-slot name="menu">
+        @livewire('navigation-menu')
+    </x-slot>
+
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}
@@ -12,4 +20,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+</x-ui-base>
