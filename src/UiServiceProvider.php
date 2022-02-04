@@ -10,7 +10,11 @@ class UiServiceProvider extends ServiceProvider
     private $components = [
         'base',
         'banner',
-        'layout'
+        'box',
+        'crud-table',
+        'layout',
+        'table',
+        'th'
     ];
 
     public function register()
@@ -20,7 +24,7 @@ class UiServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__ . '/Components', 'ui');
+        $this->loadViewsFrom(__DIR__ . '/Components/' . config('ui.stack'), 'ui');
 
         foreach($this->components as $component)
         {
