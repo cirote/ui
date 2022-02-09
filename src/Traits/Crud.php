@@ -18,6 +18,7 @@ trait Crud
 
     public $archivos = [];
 
+    public $model;
 
     /*
         Filtro
@@ -58,6 +59,15 @@ trait Crud
     public function create()
     {
         $this->resetInputFields();
+
+        $this->openModal();
+    }
+
+    public function edit($id)
+    {
+        $this->model = $this->model_class::findOrFail($id);
+  
+        //$this->resetInputFields();
 
         $this->openModal();
     }

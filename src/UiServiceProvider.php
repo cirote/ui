@@ -12,6 +12,7 @@ class UiServiceProvider extends ServiceProvider
         'banner',
         'box',
         'crud-table',
+        'input-text',
         'layout',
         'table',
         'td',

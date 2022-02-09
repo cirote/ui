@@ -28,6 +28,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.10/css/AdminLTE.css" integrity="sha256-j3iHWqU+/mbeEPIRlLxEznQaRP8HGkzCnNhb+myNRv8=" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.10/css/skins/skin-blue.min.css" integrity="sha256-dDi4GN+hJjMVQmkbeVpXkn3/qwQrL3oWvW8ukATCaPc=" crossorigin="anonymous" />
 
+    @livewireStyles
+
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -81,6 +83,7 @@
     <!-- AdminLTE App -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.10/js/adminlte.min.js" integrity="sha256-EQdVhGZHXaz1JDzRk5iIxsVRXH3yddtfMaii5tTK1uY=" crossorigin="anonymous"></script>
 
+    @livewireScripts
 </body>
 
 </html>
