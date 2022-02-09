@@ -6,7 +6,7 @@
         : 'sorting'
 )
 <td {{ $attributes->merge([
-        'class' => '',
+        'class' => 'px-6 py-4 whitespace-nowrap',
         'rowspan' => "1"
     ]) }}>
     {{ $slot }}

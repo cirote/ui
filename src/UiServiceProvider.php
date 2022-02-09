@@ -11,8 +11,11 @@ class UiServiceProvider extends ServiceProvider
         'banner',
         'base',
         'box',
+        'button',
+        'edit-button',
         'input-text',
         'layout',
+        'row',
         'table',
         'td',
         'th'
