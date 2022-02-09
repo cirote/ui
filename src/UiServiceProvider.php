@@ -8,15 +8,18 @@ use Illuminate\Support\Facades\Blade;
 class UiServiceProvider extends ServiceProvider
 {
     private $components = [
-        'base',
         'banner',
+        'base',
         'box',
-        'crud-table',
         'input-text',
         'layout',
         'table',
         'td',
         'th'
+    ];
+
+    private $commons = [
+        'crud-table',
     ];
 
     public function register()
@@ -27,15 +30,24 @@ class UiServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadViewsFrom(__DIR__ . '/Components/' . config('ui.stack'), 'ui');
+        
+        $this->registerComponents($this->components, 'ui'); 
 
-        foreach($this->components as $component)
+        $this->loadViewsFrom(__DIR__ . '/Components/Comunes', 'uic');
+
+        $this->registerComponents($this->commons, 'uic'); 
+    }
+
+    protected function registerComponents(array $components, string $path)
+    {
+        foreach($components as $component)
         {
-            $this->registerComponent($component); 
+            $this->registerComponent($component, $path); 
         }
     }
 
-    protected function registerComponent(string $component)
+    protected function registerComponent(string $component, string $path)
     {
-        Blade::component('ui::' . $component, 'ui-' . $component);
+        Blade::component($path . '::' . $component, 'ui-' . $component);
     }
 }

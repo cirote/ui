@@ -1,6 +1,5 @@
 <x-ui-box>
     <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
-    {{ $attributes }}
         @if(! $isOpen)
         <div class="row">
             <div class="col-sm-6">
@@ -13,6 +12,7 @@
             </div>
             <div class="col-sm-6">
                 <div id="example1_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="example1"></label></div>
+                <button wire:click="create" type="button" class="btn btn-warning" data-dismiss="modal">Crear</button>
             </div>
         </div>
         <div class="row">
@@ -49,7 +49,19 @@
             </div>
         </div>
         @else
-        {{ $form }}
+        <form class="">
+            <div class="row">
+                <div class="col-lg-6">
+                    {{ $form }}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    {{ $buttons }}
+                </div>
+            </div>
+        </form>
         @endif
     </div>
 </x-ui-box>

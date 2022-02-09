@@ -12,7 +12,7 @@ trait Crud
 
     public $isOpen = false;
 
-    public $isEditable = false;
+    public $isEditable = true;
 
     public $archivo_tag = 'archivo';
 
@@ -58,7 +58,7 @@ trait Crud
 
     public function create()
     {
-        $this->resetInputFields();
+        $this->model = new $this->model_class();
 
         $this->openModal();
     }
@@ -66,15 +66,13 @@ trait Crud
     public function edit($id)
     {
         $this->model = $this->model_class::findOrFail($id);
-  
-        //$this->resetInputFields();
 
         $this->openModal();
     }
 
     public function store()
     {
-        $this->storeAndContinue();
+        $this->model->save();
   
         $this->closeModal();
     }
