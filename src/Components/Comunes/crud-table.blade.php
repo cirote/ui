@@ -15,15 +15,15 @@
     </x-ui-row>
     @else
     <x-ui-row>
-        <form class="">
-            <x-ui-row>
-                {{ $form }}
-            </x-ui-row>
+        <x-ui-form submit="updatePassword">
 
-            <x-ui-row>
+            <x-slot name="actions">
                 {{ $buttons }}
-            </x-ui-row>
-        </form>
+            </x-slot>
+
+            {{ $form }}
+
+        </x-ui-form>
     </x-ui-row>
     @endif
 </x-ui-box>

@@ -1,4 +1,4 @@
-<table class="min-w-full divide-y divide-gray-200">
+<table class="w-full divide-y divide-gray-200">
     @if (isset($header))
     <thead class="bg-gray-50">
         {{ $header }}

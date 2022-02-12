@@ -1,10 +1,6 @@
-@props(['disabled' => false])
-
-@props(['value'])
-
-<label {{ $attributes->merge(['class' => 'block font-medium text-sm text-gray-700']) }}>
-    {{ $value ?? $slot }}
-</label>
-
-<input {{ $disabled ? 'disabled' : '' }} {!! $attributes->merge(['class' => 'border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm']) !!}>
-
+<div class="w-full col-span-6 sm:col-span-4">
+    <x-jet-label for="current_password" value="{{ $slot }}" />
+    <x-jet-input id="current_password" type="text
+    " class="mt-1 block w-full" wire:model.defer="{{ $attributes->whereStartsWith('wire:model')->first() }}" autocomplete="current-password" />
+    <x-jet-input-error for="current_password" class="mt-2" />
+</div>

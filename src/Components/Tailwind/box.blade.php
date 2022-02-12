@@ -1,5 +1,5 @@
-<div class="flex">
-    <div class="w-full p-4 bg-blue-800">
+<div class="flex flex-col">
+    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         {{ $slot }}
     </div>
 </div>
