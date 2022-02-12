@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'stack' => 'AdminLTE',
-    //'stack' => 'Tailwind',
+    // 'stack' => 'AdminLTE',
+    'stack' => 'Tailwind',
 ];

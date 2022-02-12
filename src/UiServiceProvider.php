@@ -12,7 +12,9 @@ class UiServiceProvider extends ServiceProvider
         'base',
         'box',
         'button',
-        'edit-button',
+        'button-cancel',
+        'button-edit',
+        'button-store',
         'input-text',
         'layout',
         'row',
@@ -23,6 +25,7 @@ class UiServiceProvider extends ServiceProvider
 
     private $commons = [
         'crud-table',
+        'td-actions'
     ];
 
     public function register()

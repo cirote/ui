@@ -1,1 +1,3 @@
-<button wire:click="edit({{ $broker->id }})" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></button> &nbsp;
+<button {{ $attributes->merge(['class' =>"btn btn-primary btn-sm"]) }}> 
+    {{ $slot }}
+</button>
