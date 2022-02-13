@@ -10,6 +10,6 @@
         </tr>
     </tbody>
     <tfoot>
-        {{ $header }}
+        
     </tfoot>
 </table>

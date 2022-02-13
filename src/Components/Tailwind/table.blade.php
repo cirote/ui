@@ -10,6 +10,6 @@
         </tr>
     </tbody>
     <tfoot class="bg-gray-50">
-        {{ $header }}
+        
     </tfoot>
 </table>

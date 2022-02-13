@@ -1,19 +1,26 @@
 <x-ui-box>
+
     @if(! $isOpen)
+
     <x-ui-row>
         <x-ui-table>
 
-            @if (isset($header))
             <x-slot name="header">
+                @if (isset($header))
                 {{ $header }}
+                @endif
+                <x-ui-row>
+                    <x-ui-button wire:click="create" class="btn-success" >Crear</x-ui-button>
+                </x-ui-row>
             </x-slot>
-            @endif
 
             {{ $slot }}
 
         </x-ui-table>
     </x-ui-row>
+
     @else
+
     <x-ui-row>
         <x-ui-form submit="updatePassword">
 
@@ -25,5 +32,7 @@
 
         </x-ui-form>
     </x-ui-row>
+
     @endif
+    
 </x-ui-box>
