@@ -5,9 +5,8 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "calebporzio/parental": "^1.0",
         "laravel/jetstream": "2.*"
-    },
-    "require-dev": {
     },
     "autoload": {
         "psr-4": {
