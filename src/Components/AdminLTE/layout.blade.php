@@ -4,7 +4,7 @@
     </x-slot>
 
     <x-slot name="menu">
-        @livewire('navigation-menu')
+        @includeif('menu')
     </x-slot>
 
     <x-slot name="header">

@@ -40,13 +40,19 @@
 
 </head>
 
-<body class="hold-transition @yield('body_class')">
+<body class="sidebar-mini skin-blue" style="height: auto; min-height: 100%;">
 
-    <div class="wrapper">
+    <div class="wrapper" style="height: auto; min-height: 100%;">
 
         @yield('main_header')
 
-        @yield('sidebar')
+        @if (isset($menu))
+        <section class="content-header">
+            <h1>
+                {{ $menu }}
+            </h1>
+        </section>
+        @endif
 
         <div class="content-wrapper">
 
