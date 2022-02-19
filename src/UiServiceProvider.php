@@ -23,7 +23,8 @@ class UiServiceProvider extends ServiceProvider
         'row',
         'table',
         'td',
-        'th'
+        'th',
+        'tr'
     ];
 
     private $commons = [
