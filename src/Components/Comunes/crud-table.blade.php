@@ -3,6 +3,10 @@
     @if(! $isOpen)
 
     <x-ui-row>
+        @if (isset($main_header))
+        {{ $main_header }}
+        @endif
+
         <x-ui-table>
 
             <x-slot name="header">
@@ -10,7 +14,7 @@
                 {{ $header }}
                 @endif
                 <x-ui-row>
-                    <x-ui-button wire:click="create" class="btn-success" >Crear</x-ui-button>
+                    <x-ui-button wire:click="create" class="btn-success">Crear</x-ui-button>
                 </x-ui-row>
             </x-slot>
 
@@ -34,5 +38,5 @@
     </x-ui-row>
 
     @endif
-    
+
 </x-ui-box>

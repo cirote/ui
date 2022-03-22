@@ -21,6 +21,7 @@ class UiServiceProvider extends ServiceProvider
         'menu',
         'menu-item',
         'row',
+        'select',
         'table',
         'tarjeta',
         'td',
