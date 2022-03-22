@@ -6,7 +6,7 @@ use Carbon\Carbon;
 
 trait Crud
 {
-    public $paginate = 100;
+    public $paginate = 5;
 
     public $message = 'Error';
 
