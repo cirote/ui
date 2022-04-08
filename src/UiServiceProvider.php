@@ -31,7 +31,8 @@ class UiServiceProvider extends ServiceProvider
 
     private $commons = [
         'crud-table',
-        'td-actions'
+        'td-actions',
+        'ntd'
     ];
 
     public function register()
