@@ -18,6 +18,7 @@ class UiServiceProvider extends ServiceProvider
         'form',
         'input-text',
         'layout',
+        'librerias',
         'menu',
         'menu-item',
         'row',
