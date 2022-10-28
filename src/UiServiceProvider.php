@@ -15,6 +15,7 @@ class UiServiceProvider extends ServiceProvider
         'button-cancel',
         'button-edit',
         'button-store',
+        'card',
         'form',
         'input-text',
         'layout',
