@@ -272,11 +272,28 @@
               </li>
             </ul>
           </li>
+          <x-ui-menu>
+          <x-ui-menu-item href="../charts/chartjs.html" icon="circle">
+            ChartJS
+        </x-ui-menu-item>
+
+        <x-ui-menu-item href="../charts/flot.html" icon="circle">
+            Flot
+        </x-ui-menu-item>
+
+        <x-ui-menu-item href="../charts/inline.html" icon="circle">
+            Inline
+        </x-ui-menu-item>
+
+        <x-ui-menu-item href="../charts/uplot.html" icon="circle">
+            uPlot
+        </x-ui-menu-item>
+          </x-ui-menu>
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
-                Charts
+                Charts yy
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>

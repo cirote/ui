@@ -1,7 +1,12 @@
-<li class="{{ (Request::routeIs(route($route))) ? 'active' : '' }}">
-    <a href="{{ route($route, [], false) }}">
-        <span style="font-size: 16px;">
-            {{ $slot }}
-        </span>
+@props([
+    'href' => 'ggg',
+    'icon' => 'ggg'
+
+])
+
+<li class="nav-item">
+    <a href="{{ $href }}" class="nav-link">
+        <i class="far fa-{{ $icon }} nav-icon"></i>
+        <p>{{ $slot }}</p>
     </a>
 </li>
