@@ -839,11 +839,25 @@
         <div class="row">
           <div class="col-12">
             <!-- Default box -->
-
-            <x-ui-card>
-
-            </x-ui-card>
             
+            <x-ui-card title="Titulo" footer="Pie de pagina" color="pInK">
+                <x-ui-row>
+
+                    <x-ui-col sm="6">
+                        <x-ui-card title="Titulo" footer="Pie de pagina" color="Gray Dark">
+                            Contenido
+                        </x-ui-card>
+                    </x-ui-col>
+        
+                    <x-ui-col sm="3">
+                        <x-ui-card title="Titulo" footer="Pie de pagina" color="gray">
+                            Contenido
+                        </x-ui-card>
+                    </x-ui-col>
+
+                </x-ui-row>
+            </x-ui-card>
+
             <!-- /.card -->
           </div>
         </div>

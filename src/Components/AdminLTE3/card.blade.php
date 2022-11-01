@@ -1,22 +1,59 @@
-<div class="card">
-              <div class="card-header">
-                <h3 class="card-title">Title</h3>
+{{-- 
+    Primary
+    Secondary
+    Info
+    Success
+    Warning
+    Danger 
+    Black
+    Gray Dark
+    Gray
+    Light
+    Indigo
+    Lightblue
+    Navy
+    Purple
+    Fuchsia
+    Pink
+    Maroon
+    Orange
+    Lime
+    Teal
+    Olive
+--}}
 
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                    <i class="fas fa-times"></i>
-                  </button>
-                </div>
-              </div>
-              <div class="card-body">
-                Start creating your amazing application!
-              </div>
-              <!-- /.card-body -->
-              <div class="card-footer">
-                Footer
-              </div>
-              <!-- /.card-footer-->
-            </div>
+@php ($color = str_replace(' ', '-', strtolower($color)) ?? 'gray')
+
+<div class="card card-{{ $color }}">
+
+    @if($title ?? false)
+    <div class="card-header">
+        <h3 class="card-title">
+            {{ $title }}
+        </h3>
+        <div class="card-tools">
+            @if($collapse ?? false)
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                <i class="fas fa-minus"></i>
+            </button>
+            @endif
+            @if($remove ?? false)
+            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                <i class="fas fa-times"></i>
+            </button>
+            @endif
+        </div>
+    </div>
+    @endif
+
+    <div class="card-body">
+        {{ $slot }}
+    </div>
+
+    @if($footer ?? false)
+    <div class="card-footer">
+        {{ $footer }}
+    </div>
+    @endif
+
+</div>
