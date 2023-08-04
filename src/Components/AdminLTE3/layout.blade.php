@@ -5,7 +5,7 @@
     </x-slot>
 
     <x-slot name="menu">
-        @includeif('menu')
+        @includeFirst(['menu', 'ui::menu'])
     </x-slot>
 
     <x-slot name="header">
