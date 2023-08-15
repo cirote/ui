@@ -4,6 +4,7 @@ namespace Cirote\Ui;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Pagination\Paginator;
 
 class UiServiceProvider extends ServiceProvider
 {
@@ -52,6 +53,8 @@ class UiServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__ . '/Components/Comunes', 'uic');
 
         $this->registerComponents($this->commons, 'uic'); 
+
+        Paginator::defaultView('ui::pagination');
     }
 
     protected function registerComponents(array $components, string $path)

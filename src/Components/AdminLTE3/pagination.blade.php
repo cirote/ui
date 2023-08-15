@@ -1,0 +1,65 @@
+<div class="col-6">
+    Filas {{ $paginator->toArray()['from'] }} a la {{ $paginator->toArray()['to'] }} de {{ $paginator->total() }}
+</div>
+
+<div class="col-6 dataTables_paginate paging_simple_numbers">
+    @if ($paginator->hasPages())
+
+        <ul class="pagination" style="float: right">
+
+            @if ($paginator->onFirstPage())
+                <li class="paginate_button page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Primera</a>
+                </li>
+                <li class="paginate_button page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Anterior</a>
+                </li>
+            @else
+                <li class="paginate_button page-item">
+                    <a class="page-link" href="{{ $paginator->toArray()['first_page_url'] }}">Primera</a>
+                </li>
+                <li class="paginate_button page-item">
+                    <a class="page-link" href="{{ $paginator->previousPageUrl() }}">Anterior</a>
+                </li>
+            @endif
+
+            @foreach ($elements as $element)
+                @if (is_string($element))
+                    <li class="page-item disabled">{{ $element }}</li>
+                @endif
+
+                @if (is_array($element))
+                    @foreach ($element as $page => $url)
+                        @if ($page == $paginator->currentPage())
+                            <li class="page-item active">
+                                <a class="page-link">{{ $page }}</a>
+                            </li>
+                        @else
+                            <li class="page-item">
+                                <a class="page-link" href="{{ $url }}">{{ $page }}</a>
+                            </li>
+                        @endif
+                    @endforeach
+                @endif
+            @endforeach
+
+            @if ($paginator->hasMorePages())
+                <li class="paginate_button page-item">
+                    <a class="page-link" href="{{ $paginator->nextPageUrl() }}" rel="next">Siguiente</a>
+                </li>
+                <li class="paginate_button page-item">
+                    <a class="page-link" href="{{ $paginator->toArray()['last_page_url'] }}" rel="next">Última</a>
+                </li>
+            @else
+                <li class="paginate_button page-item disabled">
+                    <a class="page-link" href="#">Siguiente</a>
+                </li>
+                <li class="paginate_button page-item disabled">
+                    <a class="page-link" href="#">Última</a>
+                </li>
+            @endif
+
+        </ul>
+
+    @endif
+</div>

@@ -1,41 +1,61 @@
 <x-ui-box>
 
-    @if(! $isOpen)
+    <x-slot name="header">
+        {{ $title ?? '' }}
+    </x-slot>
 
-    <x-ui-row>
-        @if (isset($main_header))
-        {{ $main_header }}
-        @endif
+    <x-slot name="tools">
+        <input type="text" name="search" class="form-control form-control-sm" placeholder="Buscar" style="float:left; width: 400px">
+        &nbsp
+        <x-ui-button wire:click="create" class="btn-success">
+            <i class="fa fa-plus"></i>
+            Crear
+        </x-ui-button>
+    </x-slot>
 
-        <x-ui-table>
+    @if (!$isOpen)
 
-            <x-slot name="header">
-                @if (isset($header))
-                {{ $header }}
-                @endif
-                <x-ui-row>
-                    <x-ui-button wire:click="create" class="btn-success">Crear</x-ui-button>
-                </x-ui-row>
-            </x-slot>
+        <x-ui-row>
+            @if (isset($main_header))
+                {{ $main_header }}
+            @endif
 
-            {{ $slot }}
+            <x-ui-table>
 
-        </x-ui-table>
-    </x-ui-row>
+                <x-slot name="header">
+                    @if (isset($header))
+                        {{ $header }}
+                    @endif
+                </x-slot>
 
+                <x-slot name="footer">
+                    @if (isset($footer))
+                        {{ $footer }}
+                    @endif
+                </x-slot>
+
+                <x-slot name="nav">
+                    @if (isset($nav))
+                        {{ $nav }}
+                    @endif
+                </x-slot>
+
+                {{ $slot }}
+
+            </x-ui-table>
+        </x-ui-row>
     @else
+        <x-ui-row>
+            <x-ui-form submit="updatePassword">
 
-    <x-ui-row>
-        <x-ui-form submit="updatePassword">
+                <x-slot name="actions">
+                    {{ $buttons }}
+                </x-slot>
 
-            <x-slot name="actions">
-                {{ $buttons }}
-            </x-slot>
+                {{ $form }}
 
-            {{ $form }}
-
-        </x-ui-form>
-    </x-ui-row>
+            </x-ui-form>
+        </x-ui-row>
 
     @endif
 

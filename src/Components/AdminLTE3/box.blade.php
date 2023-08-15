@@ -1,14 +1,15 @@
-<div class="box box-success">
-    <div class="box-header with-border">
+<div class="card">
 
-        <h3 class="box-title">{{ $header ?? '' }}</h3>
-
-        <div class="box-tools pull-right">
+    <div class="card-header">
+        <h3 class="card-title">{{ $header ?? '' }}</h3>
+        <div class="card-tools">
+            @if ($tools)
+                {{ $tools }}
+            @endif
         </div>
-
     </div>
 
-    <div class="box-body">
+    <div class="card-body">
         {{ $slot }}
     </div>
 
