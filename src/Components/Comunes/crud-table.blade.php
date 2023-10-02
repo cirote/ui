@@ -4,16 +4,17 @@
         {{ $title ?? '' }}
     </x-slot>
 
-    <x-slot name="tools">
-        <input type="text" name="search" class="form-control form-control-sm" placeholder="Buscar" style="float:left; width: 400px">
-        &nbsp
-        <x-ui-button wire:click="create" class="btn-success">
-            <i class="fa fa-plus"></i>
-            Crear
-        </x-ui-button>
-    </x-slot>
+    @if ($mode == 'TABLE')
 
-    @if (!$isOpen)
+        <x-slot name="tools">
+            <input type="text" name="search" class="form-control form-control-sm" placeholder="Buscar"
+                style="float:left; width: 400px">
+            &nbsp
+            <x-ui-button wire:click="create" class="btn-success">
+                <i class="fa fa-plus"></i>
+                Crear
+            </x-ui-button>
+        </x-slot>
 
         <x-ui-row>
             @if (isset($main_header))
@@ -44,19 +45,20 @@
 
             </x-ui-table>
         </x-ui-row>
-    @else
-        <x-ui-row>
-            <x-ui-form submit="updatePassword">
+    @endif
 
+    @if ($mode == 'EDIT')
+        <x-ui-row>
+            <x-ui-form>
+
+                {{ $form }}
+                
                 <x-slot name="actions">
                     {{ $buttons }}
                 </x-slot>
 
-                {{ $form }}
-
             </x-ui-form>
         </x-ui-row>
-
     @endif
 
 </x-ui-box>

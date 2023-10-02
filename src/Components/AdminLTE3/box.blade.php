@@ -3,9 +3,9 @@
     <div class="card-header">
         <h3 class="card-title">{{ $header ?? '' }}</h3>
         <div class="card-tools">
-            @if ($tools)
+            @isset ($tools)
                 {{ $tools }}
-            @endif
+            @endisset
         </div>
     </div>
 

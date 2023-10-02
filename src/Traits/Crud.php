@@ -6,11 +6,11 @@ use Carbon\Carbon;
 
 trait Crud
 {
-    public $paginate = 5;
+    public $paginate = 10;
 
     public $message = 'Error';
 
-    public $isOpen = false;
+    public $mode = 'TABLE';
 
     public $isEditable = true;
 
@@ -33,26 +33,6 @@ trait Crud
 
 
     /*
-        Modal
-    */
-
-    private function openModal()
-    {
-        $this->isOpen = true;
-    }
-    
-    public function close()
-    {
-        $this->closeModal();
-    }
-
-    private function closeModal()
-    {
-        $this->isOpen = false;
-    }
-
-
-    /*
         CRUD General
     */
 
@@ -60,21 +40,26 @@ trait Crud
     {
         $this->model = new $this->model_class();
 
-        $this->openModal();
+        $this->mode = 'CREATE';
     }
 
     public function edit($id)
     {
         $this->model = $this->model_class::findOrFail($id);
 
-        $this->openModal();
+        $this->mode = 'EDIT';
     }
 
     public function store()
     {
         $this->model->save();
   
-        $this->closeModal();
+        $this->mode = 'TABLE';
+    }
+
+    public function close()
+    {
+        $this->mode = 'TABLE';
     }
 
     public function updated($propertyName)

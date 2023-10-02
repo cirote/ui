@@ -8,8 +8,8 @@
         : 'sorting'
 )
 <th {{ $attributes->merge([
-        'class' => $sort_class,
-        'rowspan' => "1"
-    ]) }} tabindex="0" aria-controls="example1" colspan="1" style="width: 191.067px;" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">
+        'class'   => $sort_class,
+        'rowspan' => "1",
+    ]) }} tabindex="0" aria-controls="example1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">
     {{ $slot }}
 </th>

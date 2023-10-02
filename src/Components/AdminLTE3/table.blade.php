@@ -1,4 +1,4 @@
-<table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+<table id="example1" class="table table-sm table-bordered table-striped" role="grid" aria-describedby="example1_info">
     @if (isset($header))
         <thead>
             {{ $header }}
