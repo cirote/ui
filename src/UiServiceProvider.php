@@ -8,37 +8,6 @@ use Illuminate\Pagination\Paginator;
 
 class UiServiceProvider extends ServiceProvider
 {
-    private $components = [
-        'banner',
-        'base',
-        'box',
-        'button',
-        'button-cancel',
-        'button-edit',
-        'button-store',
-        'card',
-        'col',
-        'form',
-        'input-text',
-        'layout',
-        'librerias',
-        'menu',
-        'menu-item',
-        'row',
-        'select',
-        'table',
-        'tarjeta',
-        'td',
-        'th',
-        'tr'
-    ];
-
-    private $commons = [
-        'crud-table',
-        'td-actions',
-        'ntd'
-    ];
-
     public function register()
     {
         $this->mergeConfigFrom(__DIR__ . '/Config/ui.php', 'ui');
@@ -46,27 +15,30 @@ class UiServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__ . '/Components/' . config('ui.stack'), 'ui');
-        
-        $this->registerComponents($this->components, 'ui'); 
+        $this->registrar_directorio(__DIR__ . '/Components/' . config('ui.stack'), 'ui');
 
-        $this->loadViewsFrom(__DIR__ . '/Components/Comunes', 'uic');
-
-        $this->registerComponents($this->commons, 'uic'); 
+        $this->registrar_directorio(__DIR__ . '/Components/Comunes', 'uic');
 
         Paginator::defaultView('ui::pagination');
     }
 
-    protected function registerComponents(array $components, string $path)
+    protected function registrar_directorio(string $directorio, string $path)
     {
-        foreach($components as $component)
+        $this->loadViewsFrom($directorio, $path);
+
+        $this->registrar_componentes(array_diff(scandir($directorio), array('.', '..')), $path); 
+    }
+
+    protected function registrar_componentes(array $componentes, string $path)
+    {
+        foreach($componentes as $componente)
         {
-            $this->registerComponent($component, $path); 
+            $this->registrar_componente(str_replace('.blade.php', '', $componente), $path); 
         }
     }
 
-    protected function registerComponent(string $component, string $path)
+    protected function registrar_componente(string $componente, string $path)
     {
-        Blade::component($path . '::' . $component, 'ui-' . $component);
+        Blade::component($path . '::' . $componente, 'ui-' . $componente);
     }
 }
