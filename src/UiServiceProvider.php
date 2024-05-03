@@ -26,7 +26,7 @@ class UiServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom($directorio, $path);
 
-        $this->registrar_componentes(array_diff(scandir($directorio), array('.', '..')), $path); 
+        $this->registrar_componentes(array_diff(scandir($directorio), ['.', '..']), $path); 
     }
 
     protected function registrar_componentes(array $componentes, string $path)
