@@ -26,3 +26,12 @@ ln -s -r -t public/ ./vendor/almasaeed2010/adminlte/dist
 ```
 ln -s -r -t public/ ./vendor/almasaeed2010/adminlte/plugins
 ```
+## Elementos de la interface
+
+### Layout
+
+#### Layout
+
+```
+ln -s -r -t public/ ./vendor/almasaeed2010/adminlte/plugins
+```
