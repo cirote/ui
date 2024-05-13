@@ -28,10 +28,50 @@ ln -s -r -t public/ ./vendor/almasaeed2010/adminlte/plugins
 ```
 ## Elementos de la interface
 
-### Layout
+### Elementos de Layout
 
 #### Layout
 
 ```
-ln -s -r -t public/ ./vendor/almasaeed2010/adminlte/plugins
+<x-ui-layout>
+
+    <x-slot name="header">
+        Titulo
+    </x-slot>
+
+   Contenido
+
+</x-ui-layout>
+```
+
+### Elementos de Menú
+
+#### Layout
+
+```
+<x-ui-layout>
+
+    <x-slot name="header">
+        Titulo
+    </x-slot>
+
+   Contenido
+
+</x-ui-layout>
+```
+
+### Elementos varios
+
+#### Layout
+
+```
+<x-ui-layout>
+
+    <x-slot name="header">
+        Titulo
+    </x-slot>
+
+   Contenido
+
+</x-ui-layout>
 ```
