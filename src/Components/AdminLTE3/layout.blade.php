@@ -4,6 +4,10 @@
         <x-ui-banner />
     </x-slot>
 
+    <x-slot name="user">
+        @includeFirst(['user', 'ui::user'])
+    </x-slot>
+
     <x-slot name="menu">
         @includeFirst(['menu', 'ui::menu'])
     </x-slot>
