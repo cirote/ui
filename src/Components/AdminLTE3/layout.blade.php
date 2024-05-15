@@ -16,6 +16,10 @@
         @includeFirst(['menu', 'ui::menu'])
     </x-slot>
 
+    <x-slot name="footer">
+        @includeFirst(['footer', 'ui::footer'])
+    </x-slot>
+
     <x-slot name="header">
         {{ $header }}
     </x-slot>
