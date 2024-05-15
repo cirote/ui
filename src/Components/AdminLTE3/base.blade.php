@@ -1,7 +1,7 @@
 <x-ui-librerias>
 
     <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <nav class="main-header navbar navbar-expand navbar-info navbar-light">
         <!-- Left navbar links -->
         <ul class="navbar-nav">
             <li class="nav-item">
@@ -833,15 +833,15 @@
         <section class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
-                    <div class="col-sm-6">
+                    <div class="col-sm-9">
                         <h1>{{ $header }}</h1>
                     </div>
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
+                    <div class="col-sm-3">
+                        {{-- <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
                             <li class="breadcrumb-item"><a href="#">Layout</a></li>
                             <li class="breadcrumb-item active">Fixed Layout</li>
-                        </ol>
+                        </ol> --}}
                     </div>
                 </div>
             </div><!-- /.container-fluid -->

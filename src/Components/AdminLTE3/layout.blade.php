@@ -1,9 +1,5 @@
 <x-ui-base>
 
-    <x-slot name="banner">
-        <x-ui-banner />
-    </x-slot>
-
     <x-slot name="brand">
         @includeFirst(['brand', 'ui::brand'])
     </x-slot>
