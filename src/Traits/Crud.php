@@ -39,8 +39,15 @@ trait Crud
     public function create()
     {
         $this->model = new $this->model_class();
+        
+        $this->initial_values();
 
         $this->mode = 'CREATE';
+    }
+
+    public function initial_values()
+    {
+        
     }
 
     public function edit($id)
@@ -63,7 +70,14 @@ trait Crud
     }
 
     public function updated($propertyName)
-    {
+    {   
+        $metodo = 'validar_' . str_replace('.', '_', $propertyName);
+
+        if (method_exists($this, $metodo))
+        {
+            $this->$metodo($propertyName);
+        }
+
         $this->validateOnly($propertyName, $this->rules);
     }
 }
