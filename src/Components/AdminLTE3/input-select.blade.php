@@ -1,8 +1,8 @@
 <div class="form-group">
     <label for="{{ $item }}" class="control-label">
-        @lang('entradas.remitente')
+        {{ $slot }}
     </label>
-    <select wire:model.defer="{{ $item }}" id="{{ $item }}" class="form-control" style="width: 100%;" data-placeholder="@lang('entradas.remitentes_pl')" >
+    <select wire:model.defer="{{ $item }}" id="{{ $item }}" data-placeholder="@lang('entradas.remitentes_pl')" {{ $attributes->merge(['class' => "form-control", 'style' => "width: 100%;"]) }} >
     {{-- @if(! $isEditable) disabled='' @endif> --}}
         <option selected value="">@lang('entradas.remitentes_lista')</option>
         @foreach (App\Models\Activos\Activo::all() as $pais)

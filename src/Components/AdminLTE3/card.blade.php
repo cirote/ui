@@ -26,10 +26,10 @@
 
 <div class="card card-{{ $color }}">
 
-    @if($title ?? false)
+    @if($header ?? false)
     <div class="card-header">
         <h3 class="card-title">
-            {{ $title }}
+            {{ $header ?? ''}}
         </h3>
         <div class="card-tools">
             @if($collapse ?? false)
