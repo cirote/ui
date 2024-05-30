@@ -42,6 +42,9 @@
                 <i class="fas fa-times"></i>
             </button>
             @endif
+            @isset ($tools)
+            {{ $tools }}
+            @endisset
         </div>
     </div>
     @endif
