@@ -1,13 +1,11 @@
-<table id="example1" class="table table-sm table-bordered table-striped" role="grid" aria-describedby="example1_info">
+<table id="example1" class="table table-sm table-bordered table-striped table-hover" role="grid" aria-describedby="example1_info">
     @if (isset($header))
         <thead>
             {{ $header }}
         </thead>
     @endif
     <tbody>
-        <tr role="row" class="odd">
-            {{ $slot }}
-        </tr>
+        {{ $slot }}
     </tbody>
     @if (isset($footer))
         <tfoot>
