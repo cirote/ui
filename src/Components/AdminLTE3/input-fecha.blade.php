@@ -1,16 +1,15 @@
 @php($item_sin_punto = str_replace('.', '_', $item))
 
 <div class="form-group @if($errors->has('{{ $item }}')) has-error @endif">
-    <label for="{{ $item }}" class="control-label">
-        @lang('entradas.f_nota')
-    </label>
-    <div class="input-group date">
-        <div class="input-group-addon">
-            <i class="fa fa-calendar"></i>
+    <label for="{{ $item_sin_punto }}" class="form-label">{{ $slot }}</label>
+    <div class="form-group">
+        <div class="input-group date" id="{{ $item_sin_punto }}" data-target-input="nearest">
+            <input type="text" class="form-control datetimepicker-input" data-target="#{{ $item_sin_punto }}"/>
+            {{-- @if(!$isEditable) disabled='' @endif> --}}
+            <div class="input-group-append" data-target="#{{ $item_sin_punto }}" data-toggle="datetimepicker">
+                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+            </div>
         </div>
-        {{-- <input wire:model.defer="{{ $item }}" id="{{ $item_sin_punto }}" name="{{ $item_sin_punto }}" type="text" class="form-control pull-right" placeholder="@lang('entradas.f_nota_pl')" > --}}
-        <input id="{{ $item_sin_punto }}" name="{{ $item_sin_punto }}" type="text" class="form-control pull-right" placeholder="@lang('entradas.f_nota_pl')" >
-        {{-- @if(!$isEditable) disabled='' @endif> --}}
     </div>
     @if($errors->has('{{ $item }}'))
         @foreach ($errors->get('{{ $item }}') as $message)
@@ -19,21 +18,23 @@
     @endif
 </div>
 
-<script>
-    $(function() {
+<script type="text/javascript">
+    $(document).ready(function()
+    {
+        let dateFormat = "DD/MM/YYYY";
         let value = @this.get('{{ $item }}');
         let fecha = `${value.substring(8, 10)}/${value.substring(5, 7)}/${value.substring(0, 4)}`;
-        $("#{{ $item_sin_punto }}").datepicker({
-            language: "{{ \App::getLocale() }}",
-            format: 'dd/mm/yyyy',
-            autoclose: true
-        }).datepicker(
-            'update', fecha
-        ).on('changeDate', function (e) {
-            let formattedDate = e.format('dd/mm/yyyy');
-            let parts = formattedDate.split('/');
-            let isoDate = `${parts[2]}-${parts[1]}-${parts[0]}`;
+
+        $("#{{ $item_sin_punto }}").datetimepicker({
+            'locale': moment.locale('es'),
+            'format': dateFormat,
+            'date': moment(fecha, dateFormat),
+        });
+        
+        $("#{{ $item_sin_punto }}").on('change.datetimepicker', function() 
+        {
+            let isoDate = moment($(this).datetimepicker('date'));
             @this.set('{{ $item }}', isoDate);
         });
-    });
-</script>
+     });
+ </script>
