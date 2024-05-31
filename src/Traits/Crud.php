@@ -33,6 +33,25 @@ trait Crud
 
 
     /*
+        Filtro
+    */
+
+    public function order_asc($sort_by)
+    {
+        $this->sort_by = $sort_by;
+
+        $this->sort_order = 'asc';
+    }
+
+    public function order_desc($sort_by)
+    {
+        $this->sort_by = $sort_by;
+
+        $this->sort_order = 'desc';
+    }
+
+
+    /*
         CRUD General
     */
 
@@ -59,6 +78,8 @@ trait Crud
 
     public function store()
     {
+        $this->validate();
+        
         $this->model->save();
   
         $this->mode = 'TABLE';
@@ -71,12 +92,12 @@ trait Crud
 
     public function updated($propertyName)
     {   
-        $metodo = 'validar_' . str_replace('.', '_', $propertyName);
+        // $metodo = 'validar_' . str_replace('.', '_', $propertyName);
 
-        if (method_exists($this, $metodo))
-        {
-            $this->$metodo($propertyName);
-        }
+        // if (method_exists($this, $metodo))
+        // {
+        //     $this->$metodo($propertyName);
+        // }
 
         $this->validateOnly($propertyName, $this->rules);
     }
