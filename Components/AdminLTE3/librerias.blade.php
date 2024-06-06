@@ -29,11 +29,10 @@
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
-    <!-- Site wrapper -->
+
     <div class="wrapper">
         {{ $slot }}
     </div>
-    <!-- ./wrapper -->
 
     <!-- jQuery -->
     <script src="../../plugins/jquery/jquery.min.js"></script>

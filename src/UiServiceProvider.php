@@ -10,14 +10,16 @@ class UiServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/Config/ui.php', 'ui');
+        $this->mergeConfigFrom(__DIR__ . '/../Config/ui.php', 'ui');
     }
 
     public function boot()
     {
-        $this->registrar_directorio(__DIR__ . '/Components/' . config('ui.stack'), 'ui');
+        $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
 
-        $this->registrar_directorio(__DIR__ . '/Components/Comunes', 'uic');
+        $this->registrar_directorio(__DIR__ . '/../Components/' . config('ui.stack'), 'ui');
+
+        $this->registrar_directorio(__DIR__ . '/../Components/Comunes', 'uic');
 
         Paginator::defaultView('ui::pagination');
     }
