@@ -5,6 +5,7 @@ Interface de usuario
 
 Agregar en composer.json
 
+```
    "repositories": [
         {
             "type": "vcs",
@@ -13,7 +14,9 @@ Agregar en composer.json
     ],
     "require": {
         "cirote/ui": "dev-main"
-    }
+    },
+   "minimum-stability": "dev"
+```
 
 Ejecutar
 ```
