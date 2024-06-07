@@ -1,13 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Cirote\Ui\Http\Controllers\AuthController;
 
-Route::get('/login', [AuthController::class, 'login']);
+Route::get('/login', Cirote\Ui\Http\Livewire\Auth::class)->name('login');
 
-Route::get('/register', [AuthController::class, 'register']);
+Route::get('/register', Cirote\Ui\Http\Livewire\Register::class)->name('register');
 
-Route::post('/register', [AuthController::class, 'store']);
-
-Route::post('/logout', [AuthController::class, 'logout'])
-    ->middleware('auth');
+Route::post('/logout', [Cirote\Ui\Http\Controllers\AuthController::class, 'logout'])
+    ->middleware('auth')
+    ->name('logout');

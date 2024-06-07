@@ -28,7 +28,7 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
-        return view('ui::register');
+        return view('ui::blank');
     }
 
     public function store(Request $request)

@@ -4,7 +4,9 @@
     "keywords": ["laravel", "tailwind", "auth", "user interface"],
     "license": "MIT",
     "require": {
-        "php": "^7.3|^8.0"
+        "php": "^7.3|^8.0",
+        "laravel/laravel": "^7.9",
+        "livewire/livewire": "^2.12"
     },
     "autoload": {
         "psr-4": {

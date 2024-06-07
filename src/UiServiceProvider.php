@@ -5,6 +5,8 @@ namespace Cirote\Ui;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Pagination\Paginator;
+use Livewire\Livewire;
+use Cirote\Ui\Http\Livewire\Auth;
 
 class UiServiceProvider extends ServiceProvider
 {
@@ -17,11 +19,15 @@ class UiServiceProvider extends ServiceProvider
     {
         $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
 
+        $this->registrar_directorio(__DIR__ . '/../Views', 'ui');
+
         $this->registrar_directorio(__DIR__ . '/../Components/' . config('ui.stack'), 'ui');
 
         $this->registrar_directorio(__DIR__ . '/../Components/Comunes', 'uic');
 
         Paginator::defaultView('ui::pagination');
+
+        Livewire::component('Auth', Auth::class);
     }
 
     protected function registrar_directorio(string $directorio, string $path)
