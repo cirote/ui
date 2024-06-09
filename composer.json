@@ -5,8 +5,8 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
-        "laravel/laravel": ">=7.9",
-        "livewire/livewire": ">=1.0"
+        "laravel/laravel": "*",
+        "livewire/livewire": "*"
     },
     "autoload": {
         "psr-4": {
