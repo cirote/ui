@@ -6,7 +6,8 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Pagination\Paginator;
 use Livewire\Livewire;
-use Cirote\Ui\Http\Livewire\Auth;
+use Cirote\Ui\Http\Livewire\Login;
+use Cirote\Ui\Http\Livewire\Register;
 
 class UiServiceProvider extends ServiceProvider
 {
@@ -17,7 +18,7 @@ class UiServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
+        $this->loadRoutesFrom(__DIR__ . '/../Routes/web.php');
 
         $this->registrar_directorio(__DIR__ . '/../Views', 'ui');
 
@@ -27,7 +28,8 @@ class UiServiceProvider extends ServiceProvider
 
         Paginator::defaultView('ui::pagination');
 
-        Livewire::component('Auth', Auth::class);
+        Livewire::component('login', Login::class);
+        Livewire::component('register', Register::class);
     }
 
     protected function registrar_directorio(string $directorio, string $path)
