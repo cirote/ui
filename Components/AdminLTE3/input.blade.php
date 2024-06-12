@@ -12,7 +12,7 @@
         <input type="{{ $type }}" wire:model="{{ $item }}" id='{{ $item }}' placeholder='{{ $placeholder }}' class="form-control @error($item) is-invalid @enderror">
         <div class="input-group-append">
             <span class="input-group-text">  
-                
+                {!! $icon ?? '<i class="far fa-flag fa-fw"></i>' !!}
             </span>
         </div>
     </div>
