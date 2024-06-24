@@ -9,7 +9,7 @@
         <x-slot name="tools">
 
             @if($model->total() != 0)
-                <input type="text" name="search" class="form-control form-control-sm" placeholder="Buscar"
+                <input wire:model="filtro" type="text" name="search" class="form-control form-control-sm" placeholder="Buscar"
                     style="float:left; width: 400px">
                 &nbsp
             @endif
@@ -69,7 +69,12 @@
                 {{ $form }}
                 
                 <x-slot name="actions">
-                    {{ $buttons }}
+                    @isset ($buttons)
+                        {{ $buttons }}
+                    @else
+                        <x-ui-button-cancel />
+                        <x-ui-button-store />
+                    @endisset
                 </x-slot>
 
             </x-ui-form>
@@ -83,7 +88,12 @@
                 {{ $form }}
                 
                 <x-slot name="actions">
-                    {{ $buttons }}
+                    @isset ($buttons)
+                        {{ $buttons }}
+                    @else
+                        <x-ui-button-cancel />
+                        <x-ui-button-store />
+                    @endisset
                 </x-slot>
 
             </x-ui-form>

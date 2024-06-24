@@ -28,7 +28,7 @@ trait Crud
 
     public function updatingFiltro()
     {
-        $this->resetPage();
+        // $this->resetPage();
     }
 
 
