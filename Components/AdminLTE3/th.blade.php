@@ -5,7 +5,8 @@
         'rowspan' => "1",
     ]) }} tabindex="0" colspan="1">
 
-    {{ $slot }}
+    {{ $slot }} 
+
     @isset($sorteable)
         @if(($sortby ?? '') == $sorteable)
             @if(strtoupper($sortorder) == 'ASC')
