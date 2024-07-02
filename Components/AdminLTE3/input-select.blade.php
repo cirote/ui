@@ -2,11 +2,11 @@
     <label for="{{ $item }}" class="control-label">
         {{ $slot }}
     </label>
-    <select wire:model.defer="{{ $item }}" id="{{ $item }}" data-placeholder="@lang('entradas.remitentes_pl')" {{ $attributes->merge(['class' => "form-control", 'style' => "width: 100%;"]) }} >
-    {{-- @if(! $isEditable) disabled='' @endif> --}}
-        <option selected value="">@lang('entradas.remitentes_lista')</option>
-        @foreach (App\Models\Activos\Activo::all() as $pais)
-            <option value="{{ $pais->id }}">{{ $pais->denominacion }}</option>
+    <select wire:model.defer="{{ $item }}" id="{{ $item }}" data-placeholder="@lang('entradas.remitentes_pl')"
+        {{ $attributes->merge(['class' => 'form-control', 'style' => 'width: 100%;']) }}>
+        <option value="" disabled>Elija una opción</option>
+        @foreach (array_map(function ($item) { return explode(':', $item); }, explode('|', $options)) as $opcion)
+            <option value="{{ $opcion[0] }}">{{ $opcion[1] }}</option>
         @endforeach
     </select>
 </div>
