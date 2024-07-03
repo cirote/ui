@@ -76,9 +76,16 @@ trait Crud
         $this->mode = 'EDIT';
     }
 
+    public function before_save()
+    {
+        
+    }
+
     public function store()
     {
         $this->validate();
+
+        $this->before_save();
         
         $this->model->save();
   
