@@ -32,7 +32,6 @@ trait Crud
         // $this->resetPage();
     }
 
-
     /*
         Selección de filas
     */
@@ -41,9 +40,13 @@ trait Crud
 
     public function toggleRow($rowId)
     {
-        if (in_array($rowId, $this->selectedRows)) {
+        if (in_array($rowId, $this->selectedRows)) 
+        {
             $this->selectedRows = array_diff($this->selectedRows, [$rowId]);
-        } else {
+        } 
+        
+        else 
+        {
             $this->selectedRows[] = $rowId;
         }
     }
@@ -65,7 +68,6 @@ trait Crud
 
         $this->sort_order = 'desc';
     }
-
 
     /*
         CRUD General
