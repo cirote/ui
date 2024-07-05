@@ -11,15 +11,12 @@
                 <li class="paginate_button page-item disabled">
                     <a class="page-link" href="#" tabindex="-1">Primera</a>
                 </li>
-                <li class="paginate_button page-item disabled">
-                    <a class="page-link" href="#" tabindex="-1">Anterior</a>
-                </li>
             @else
                 <li class="paginate_button page-item">
-                    <a class="page-link" href="{{ $paginator->toArray()['first_page_url'] }}">Primera</a>
+                    <a wire:click.prevent="gotoPage(1)" class="page-link" href="">Primera</a>
                 </li>
                 <li class="paginate_button page-item">
-                    <a class="page-link" href="{{ $paginator->previousPageUrl() }}">Anterior</a>
+                    <a wire:click.prevent="previousPage" class="page-link" href="">Anterior</a>
                 </li>
             @endif
 
@@ -32,11 +29,11 @@
                     @foreach ($element as $page => $url)
                         @if ($page == $paginator->currentPage())
                             <li class="page-item active">
-                                <a class="page-link">{{ $page }}</a>
+                                <a wire:click.prevent="gotoPage({{ $page }})" class="page-link" href="">{{ $page }}</a>
                             </li>
                         @else
                             <li class="page-item">
-                                <a class="page-link" href="{{ $url }}">{{ $page }}</a>
+                                <a wire:click.prevent="gotoPage({{ $page }})" class="page-link" href="">{{ $page }}</a>
                             </li>
                         @endif
                     @endforeach
@@ -45,15 +42,12 @@
 
             @if ($paginator->hasMorePages())
                 <li class="paginate_button page-item">
-                    <a class="page-link" href="{{ $paginator->nextPageUrl() }}" rel="next">Siguiente</a>
+                    <a wire:click.prevent="nextPage" class="page-link" href="" rel="next">Siguiente</a>
                 </li>
                 <li class="paginate_button page-item">
-                    <a class="page-link" href="{{ $paginator->toArray()['last_page_url'] }}" rel="next">Última</a>
+                    <a wire:click.prevent="gotoPage({{ $paginator->lastPage() }})" class="page-link" href="" rel="next">Última</a>
                 </li>
             @else
-                <li class="paginate_button page-item disabled">
-                    <a class="page-link" href="#">Siguiente</a>
-                </li>
                 <li class="paginate_button page-item disabled">
                     <a class="page-link" href="#">Última</a>
                 </li>

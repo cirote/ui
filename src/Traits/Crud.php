@@ -1,11 +1,12 @@
 <?php
 
 namespace Cirote\Ui\Traits;
-
-use Carbon\Carbon;
+use Livewire\WithPagination;
 
 trait Crud
 {
+    use WithPagination;
+
     public $paginate = 10;
 
     public $message = 'Error';
@@ -33,7 +34,22 @@ trait Crud
 
 
     /*
-        Filtro
+        Selección de filas
+    */
+
+    public $selectedRows = [];
+
+    public function toggleRow($rowId)
+    {
+        if (in_array($rowId, $this->selectedRows)) {
+            $this->selectedRows = array_diff($this->selectedRows, [$rowId]);
+        } else {
+            $this->selectedRows[] = $rowId;
+        }
+    }
+
+    /*
+        Ordenamiento
     */
 
     public function order_asc($sort_by)

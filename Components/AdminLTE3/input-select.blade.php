@@ -1,4 +1,4 @@
-<div class="form-group">
+<div wire:ignore class="form-group">
     <label for="{{ $item }}" class="control-label">
         {{ $slot }}
     </label>

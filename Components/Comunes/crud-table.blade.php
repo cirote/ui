@@ -49,14 +49,14 @@
                         @if (isset($nav))
                             {{ $nav }}
                         @else
-                            {{ $model->links() }}
+                            {{ $model->links('ui::pagination') }}
                         @endif
                     </x-slot>
 
                     {{ $slot }}
 
                 </x-ui-table>
-
+                    
             @endif
 
         </x-ui-row>

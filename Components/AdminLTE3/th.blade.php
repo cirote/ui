@@ -5,7 +5,9 @@
         'rowspan' => "1",
     ]) }} tabindex="0" colspan="1">
 
-    {{ $slot }} 
+    @php($placeholder = trim($slot) ? $slot : ucfirst(strtolower($sorteable ?? '')))
+
+    {{ $placeholder }}
 
     @isset($sorteable)
         @if(($sortby ?? '') == $sorteable)
