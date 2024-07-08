@@ -1,4 +1,4 @@
-<div class="col-lg-3 col-xs-6">
+<div class="">
     <div class="small-box bg-aqua">
         <div class="inner">
             <h3>{{ $slot }}</h3>

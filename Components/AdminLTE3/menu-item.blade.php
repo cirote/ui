@@ -1,11 +1,11 @@
 @props([
     'route' => 'home',
-    'icon' => 'circle'
+    'icon' => 'far fa-circle'
 ])
 
 <li class="nav-item">
     <a href="{{ route($route) }}" class="nav-link">
-        <i class="fas fa-{{ $icon }} nav-icon"></i>
+        <i class="{{ $icon }} nav-icon"></i>
         <p>{{ $slot }}</p>
     </a>
 </li>
