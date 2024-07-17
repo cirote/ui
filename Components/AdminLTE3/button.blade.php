@@ -1,3 +1,7 @@
-<button {{ $attributes->merge(['class' =>"btn btn-primary btn-sm"]) }}> 
+@props([
+    'type' => 'primary'
+])
+
+<button {{ $attributes->merge(['class' =>"btn btn-{$type} btn-sm"]) }}> 
     {{ $slot }}
 </button>

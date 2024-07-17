@@ -1,4 +1,4 @@
-<table id="example1" class="table table-sm table-bordered table-striped table-hover" role="grid" aria-describedby="example1_info">
+<table id="$id ?? ''" class="table table-sm table-bordered table-striped table-hover" role="grid" aria-describedby="">
     @if (isset($header))
         <thead>
             {{ $header }}

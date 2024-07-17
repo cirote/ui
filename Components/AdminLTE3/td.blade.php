@@ -5,12 +5,18 @@
 )
 
 @php(
+    $class = isset($number) && floatval($number) < 0
+        ? 'text-danger'
+        : ''
+)
+
+@php(
     $decimales = isset($decimals) ? floatval($decimals) : 2
 )
 
 <td {{ $attributes->merge([
         'style' => $style,
-        'class' => '',
+        'class' => $class,
         'rowspan' => "1"
     ]) }}>
 
