@@ -8,13 +8,28 @@
 
         <x-slot name="tools">
 
+            @isset($boxHeader)
+                <span style="float:left;">
+                    {{ $boxHeader ?? '' }}
+                </span>
+            @endisset
+
+            <span style="float:left;">
+                &nbsp
+                &nbsp
+            </span>
+
             @if($model->total() != 0)
                 <input wire:model="filtro" type="text" name="search" class="form-control form-control-sm" placeholder="Buscar"
                     style="float:left; width: 400px">
-                &nbsp
             @endif
 
-            <x-ui-button wire:click="create" class="btn-success">
+            <span style="float:left;">
+                &nbsp
+                &nbsp
+            </span>
+
+            <x-ui-button wire:click="create" class="btn-success" style="float:left;">
                 <i class="fa fa-plus"></i>
                 Crear
             </x-ui-button>
