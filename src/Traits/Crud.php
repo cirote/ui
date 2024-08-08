@@ -96,7 +96,18 @@ trait Crud
 
     public function before_save()
     {
+        foreach ($this->model->getAttributes() as $key => $value) 
+        {
+            if ($this->model->isDirty($key)) 
+            {
+                $originalValue = $this->model->getOriginal($key) ?? null;
         
+                if (($value == '') && (! is_string($originalValue)))
+                {
+                    $this->model->$key = null;
+                }
+            }
+        }
     }
 
     public function store()
