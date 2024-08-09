@@ -1,12 +1,17 @@
 <div class="">
-    <div class="small-box bg-aqua">
+    <div class="small-box">
         <div class="inner">
             <h3>{{ $slot }}</h3>
             <p>{{ $header }}</p>
         </div>
-        <div class="icon">
-            <i class="ion ion-bag"></i>
-        </div>
-        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        {{-- More info 
+        <i class="fa fa-arrow-circle-right"></i> --}}
+        @isset($footer)
+            {{ $footer }}
+        @else
+        <a href="#" class="small-box-footer bg-default">
+            &nbsp;
+        </a>
+        @endisset
     </div>
 </div>
