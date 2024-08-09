@@ -102,7 +102,7 @@ trait Crud
             {
                 $originalValue = $this->model->getOriginal($key) ?? null;
         
-                if (($value == '') && (! is_string($originalValue)))
+                if (($value === '') && (! is_string($originalValue)))
                 {
                     $this->model->$key = null;
                 }
