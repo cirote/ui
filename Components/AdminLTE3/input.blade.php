@@ -12,7 +12,7 @@
     @endif
 
     <div class="input-group">
-        <input type="{{ $tipo }}" wire:model="{{ $item }}" id="{{ $item_sin_punto }}" placeholder="{{ $placeholder }}" class="form-control @if($type == 'date') datetimepicker-input @endif @error($item) is-invalid @enderror" @if($type == 'date') data-target="#{{ $item_sin_punto }}" @endif  @if($type == 'number') onkeypress="return /[.0-9]/i.test(event.key)" @endif >
+        <input type="{{ $tipo }}" wire:model="{{ $item }}" id="{{ $item_sin_punto }}" placeholder="{{ $placeholder }}" class="form-control @if($type == 'date') datetimepicker-input @endif @error($item) is-invalid @enderror" @if($type == 'date') data-target="#{{ $item_sin_punto }}" @endif  @if($type == 'number') onkeypress="return /[.\-0-9]/i.test(event.key)" @endif >
        
         <div class="input-group-append" @if($type == 'date') data-target="#{{ $item_sin_punto }}" data-toggle="datetimepicker"@endif >
             <span class="input-group-{{ $tipo }}">  
