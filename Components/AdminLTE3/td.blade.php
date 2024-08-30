@@ -1,5 +1,5 @@
 @php(
-    $style = isset($number)
+    $style = isset($number) || isset($date)
         ? 'text-align:right'
         : ''
 )
@@ -23,6 +23,15 @@
     @isset($number)
         {{ number_format(floatval($number), $decimales, ',', '.') }}
     @else
-        {{ $slot }}
+        @isset($date)
+            {{ $date->format('d/m/Y') }}
+        @else
+            @isset($link)
+                <a target="_blank" href="{{ $link }}">{{ $text ?? ($link ?? '') }} {{ $slot }}</a>
+            @else
+                {{ $text ?? '' }}
+                {{ $slot }}
+            @endisset
+        @endisset
     @endisset
 </td>

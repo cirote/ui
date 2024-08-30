@@ -1,6 +1,6 @@
 @props([
     'route' => 'home',
-    'icon' => 'far fa-circle'
+    'icon'  => 'far fa-circle'
 ])
 
 <li class="nav-item">
