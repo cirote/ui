@@ -92,6 +92,8 @@ trait Crud
         $this->model = $this->model_class::findOrFail($id);
 
         $this->mode = 'EDIT';
+
+        // $this->emit('element.updated');
     }
 
     public function before_save()
