@@ -87,7 +87,8 @@
                     @isset ($buttons)
                         {{ $buttons }}
                     @else
-                        <x-ui-button-cancel />
+                        <x-ui-button-cancel/>
+                        &nbsp
                         <x-ui-button-store />
                     @endisset
                 </x-slot>

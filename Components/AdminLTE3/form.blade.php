@@ -1,11 +1,10 @@
-<form action="" method="get">
-    <div class="">
-        {{ $slot }}
-    </div>
+<form action="" method="get" style="width: 100%;">
+    
+    {{ $slot }}
 
     @if (isset($actions))
-        <div>
+        <x-ui-row>
             {{ $actions }}
-        </div>
+        </x-ui-row>
     @endif
 </form>
