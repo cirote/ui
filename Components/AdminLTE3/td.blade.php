@@ -1,7 +1,7 @@
 @php
     $style = isset($number) || isset($date) ? 'text-align:right' : '';
     $class = isset($number) && floatval($number) < 0 ? 'text-danger' : '';
-    $decimales = $decimals ?? 2;
+    $decimales = $decimals ?? ($d ?? 0);
 @endphp
 
 <td {{ $attributes->merge(['style' => $style, 'class' => $class, 'rowspan' => 1]) }}>

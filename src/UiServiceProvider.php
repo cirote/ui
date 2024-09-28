@@ -22,6 +22,8 @@ class UiServiceProvider extends ServiceProvider
 
         $this->registrar_directorio(__DIR__ . '/../Views', 'ui');
 
+//        Blade::componentNamespace(__DIR__ . '/../Components/' . config('ui.stack'), 'ui');
+
         $this->registrar_directorio(__DIR__ . '/../Components/' . config('ui.stack'), 'ui');
 
         $this->registrar_directorio(__DIR__ . '/../Components/Comunes', 'uic');
