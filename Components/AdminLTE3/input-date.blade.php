@@ -1,4 +1,7 @@
-@php($item_sin_punto = str_replace('.', '_', $item))
+@php
+    $item_sin_punto = str_replace('.', '_', $item);
+    $defaultValue = old($item, $this->getPropertyValue($item)?->format('Y-m-d'));
+@endphp
 
 <div>
     <div class="form-group @error($item) text-danger @enderror">
@@ -8,7 +11,7 @@
                 <span class="@error($item) text-danger @enderror">{{ $slot }}</span>
             </label>
         @else
-            @php($placeholder = $placeholder ? $placeholder : ucfirst(strtolower($item)))
+            @php($placeholder = $placeholder ?: ucfirst(strtolower($item)))
         @endif
     
         <div class="input-group date" data-target-input="nearest">
@@ -16,8 +19,8 @@
                     type="date" 
                     id="{{ $item_sin_punto }}" 
                     class="form-control datepicker-input @error($item) is-invalid @enderror" 
-                    data-target="#{{ $item_sin_punto }}" 
-                    onkeypress="return /[.0-9]/i.test(event.key)" >
+                    value="{{ $defaultValue }}"
+                    data-target="#{{ $item_sin_punto }}" />
         </div>
         @error($item)
             <span class="text-danger">* {{ ucfirst(str_replace('.', '', $message)) }}</span>
