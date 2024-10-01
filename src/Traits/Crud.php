@@ -21,6 +21,8 @@ trait Crud
 
     public $model;
 
+    public $filtro;
+
     /*
         Filtro
     */
