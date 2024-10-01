@@ -21,8 +21,6 @@ trait Crud
 
     public $model;
 
-    public $filtro;
-
     /*
         Filtro
     */
@@ -32,6 +30,11 @@ trait Crud
     public function updatingFiltro()
     {
         // $this->resetPage();
+    }
+
+    public function buscar()
+    {
+        
     }
 
     /*

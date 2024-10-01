@@ -20,8 +20,11 @@
             </span>
 
             @if($model->total() != 0)
-                <input wire:model="filtro" type="text" name="search" class="form-control form-control-sm" placeholder="Buscar"
-                    style="float:left; width: 400px">
+                <input wire:model.debounce.500ms="filtro" type="search" name="search" class="form-control form-control-sm rounded-0" placeholder="Buscar"
+                    style="float:left; width: 400px" />
+                    <x-ui-button wire:click="buscar" class="btn-warning" style="float:left;">
+                    <i class="fa fa-search"></i>
+                </x-ui-button>
             @endif
 
             <span style="float:left;">
@@ -29,10 +32,12 @@
                 &nbsp
             </span>
 
-            <x-ui-button wire:click="create" class="btn-success" style="float:left;">
-                <i class="fa fa-plus"></i>
-                Crear
-            </x-ui-button>
+            @isset($statics))
+                <x-ui-button wire:click="create" class="btn-success" style="float:left;">
+                    <i class="fa fa-plus"></i>
+                    Crear
+                </x-ui-button>
+            @endisset
 
         </x-slot>
 
