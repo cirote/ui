@@ -32,12 +32,12 @@
                 &nbsp
             </span>
 
-            @isset($statics))
+            @if(isset($create) && $create)
                 <x-ui-button wire:click="create" class="btn-success" style="float:left;">
                     <i class="fa fa-plus"></i>
                     Crear
                 </x-ui-button>
-            @endisset
+            @endif
 
         </x-slot>
 
